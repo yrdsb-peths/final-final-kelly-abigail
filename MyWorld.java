@@ -13,7 +13,7 @@ public class MyWorld extends World
     public void addWinnie(){
         // adds the winnie to the screen
         Winnie winnie = new Winnie();
-        addObject(winnie, 200, 300);
+        addObject(winnie, 100, 100);
     }
     
     public void addGroundTiles(){
