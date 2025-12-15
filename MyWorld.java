@@ -2,14 +2,24 @@ import greenfoot.*;
 
 public class MyWorld extends World 
 {
-    public MyWorld() 
-    {
-        super(600, 400, 1);
-        
+    private int wordWidth = this.getWidth();
+    private int worldHeight = this.getHeight();
+    public MyWorld(){
+        super(600, 300, 1);
+        addWinnie();
+        addGroundTiles();
+    }
+    
+    public void addWinnie(){
         // adds the winnie to the screen
         Winnie winnie = new Winnie();
         addObject(winnie, 200, 300);
-        
     }
     
+    public void addGroundTiles(){
+        for(int i = 0; i < 30; i++){
+            GroundTile one = new GroundTile();
+            addObject(one, 20 + (20 * i), worldHeight - 20);
+        }
+    }
 }
