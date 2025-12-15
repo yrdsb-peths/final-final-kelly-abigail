@@ -8,8 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GroundTile extends Tile
 {
+    GreenfootImage groundTile = new GreenfootImage("images/groudTile.jpg");
     public GroundTile(){
-        setImage("images/groudTile.jpg");
+        groundTile.scale(40, 40);
+        setImage(groundTile);
+        
     }
     
     public void act()
