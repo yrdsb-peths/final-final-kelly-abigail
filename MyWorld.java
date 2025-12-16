@@ -8,6 +8,7 @@ public class MyWorld extends World
         super(600, 300, 1);
         addWinnie();
         addGroundTiles();
+        addObject(new Timer(), 30, 30);
     }
     
     public void addWinnie(){
