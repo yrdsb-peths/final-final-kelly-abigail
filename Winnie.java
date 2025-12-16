@@ -14,10 +14,9 @@ public class Winnie extends Actor {
     
     int speed = 4;
     
-    int groundY = 300;
+    int groundY = 260;
     int jumpSpeed = 5;
     int maxJumpHeight = 100;
-    
     boolean jumping = false;
     
     public Winnie() {
@@ -29,40 +28,50 @@ public class Winnie extends Actor {
         // key movement of winnie
         moveLeftRight();
         jump();
-        fallToGround();
-        
+        gravity();
+        collisionGround();
     }
-    
     private void moveLeftRight() {
-        
         if (Greenfoot.isKeyDown("left")) {
             setLocation(getX() - speed, getY());
         }
         else if (Greenfoot.isKeyDown("right")) {
             setLocation(getX() + speed, getY());
         }
-        
     }
-    
     private void jump() {
-        
-        if (Greenfoot.isKeyDown("up") && !jumping && getY() == groundY) {
+        if (Greenfoot.isKeyDown("up") && !jumping) {
             jumping = true;
         }
         
         if (jumping) {
             if (getY() > groundY - maxJumpHeight) {
-                setLocation(getX(), getY() - jumpSpeed);
+                jumpSpeed = -5;
+                setLocation(getX(), getY() + jumpSpeed);
             } else {
                 jumping = false;
             }
         }
-        
     }
-    
-    private void fallToGround() {
+    private void gravity() {
         if (!jumping && getY() < groundY) {
+            jumpSpeed = 5;
             setLocation(getX(), getY() + jumpSpeed);
         }
     }
-}
+    private void collisionGround(){
+        GroundTile tile = (GroundTile)getOneIntersectingObject(GroundTile.class);
+        //only Land if falling or standing
+        if(tile != null && jumpSpeed >=0){
+            
+            int tileTopLocation = tile.getY() - tile.getImage().getHeight();
+            int halfPlayer =  this.getImage().getHeight()/3;
+            
+            setLocation(getX(), tileTopLocation);
+            
+            //updates real ground level
+            groundY = getY();
+            jumping = false;
+        }
+    }
+    }

@@ -14,7 +14,7 @@ public class MyWorld extends World
     public void addWinnie(){
         // adds the winnie to the screen
         Winnie winnie = new Winnie();
-        addObject(winnie, 200, 300);
+        addObject(winnie, 40, 220);
     }
     
     public void addGroundTiles(){
