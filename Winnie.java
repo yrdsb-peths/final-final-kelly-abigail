@@ -19,10 +19,27 @@ public class Winnie extends Actor {
     int maxJumpHeight = 100;
     boolean jumping = false;
     
+    GreenfootImage[] idle = new GreenfootImage[10];
+    
+    
     public Winnie() {
-        GreenfootImage img = getImage();
-        img.scale(20, 40);
+        for(int i = 0; i < idle.length; i++) {
+            idle[i] = new GreenfootImage("winnie_idle/idle" + i + ".png");
+        }
+        
+        setImage(idle[0]);
     }
+    
+    /**
+     * Animate winnie
+     */
+    
+    int imageIndex = 0;
+    public void animateWinnie() {
+        setImage(idle[imageIndex]);
+        imageIndex = (imageIndex + 1) % idle.length;
+    }
+    
     public void act() {
         
         // key movement of winnie
@@ -30,7 +47,9 @@ public class Winnie extends Actor {
         jump();
         gravity();
         collisionGround();
+        animateWinnie();
     }
+    
     private void moveLeftRight() {
         if (Greenfoot.isKeyDown("left")) {
             setLocation(getX() - speed, getY());
@@ -39,6 +58,7 @@ public class Winnie extends Actor {
             setLocation(getX() + speed, getY());
         }
     }
+    
     private void jump() {
         if (Greenfoot.isKeyDown("up") && !jumping) {
             jumping = true;
@@ -53,16 +73,18 @@ public class Winnie extends Actor {
             }
         }
     }
+    
     private void gravity() {
         if (!jumping && getY() < groundY) {
             jumpSpeed = 5;
             setLocation(getX(), getY() + jumpSpeed);
         }
     }
+    
     private void collisionGround(){
         GroundTile tile = (GroundTile)getOneIntersectingObject(GroundTile.class);
         //only Land if falling or standing
-        if(tile != null && jumpSpeed >=0){
+        if(tile != null && jumpSpeed >= 0){
             
             int tileTopLocation = tile.getY() - tile.getImage().getHeight();
             int halfPlayer =  this.getImage().getHeight()/3;
@@ -74,4 +96,4 @@ public class Winnie extends Actor {
             jumping = false;
         }
     }
-    }
+}
