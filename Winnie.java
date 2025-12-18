@@ -19,12 +19,15 @@ public class Winnie extends Actor {
     int maxJumpHeight = 100;
     boolean jumping = false;
     
+    int animDelay = 0;
+    
     GreenfootImage[] idle = new GreenfootImage[10];
     
     
     public Winnie() {
         for(int i = 0; i < idle.length; i++) {
             idle[i] = new GreenfootImage("winnie_idle/idle" + i + ".png");
+            idle[i].scale(60, 80);
         }
         
         setImage(idle[0]);
@@ -35,9 +38,14 @@ public class Winnie extends Actor {
      */
     
     int imageIndex = 0;
+    
     public void animateWinnie() {
-        setImage(idle[imageIndex]);
-        imageIndex = (imageIndex + 1) % idle.length;
+        animDelay++;
+        if (animDelay % 6 == 0) {
+            setImage(idle[imageIndex]);
+            imageIndex = (imageIndex + 1) % idle.length;
+        }
+        
     }
     
     public void act() {
@@ -86,10 +94,10 @@ public class Winnie extends Actor {
         //only Land if falling or standing
         if(tile != null && jumpSpeed >= 0){
             
-            int tileTopLocation = tile.getY() - tile.getImage().getHeight();
-            int halfPlayer =  this.getImage().getHeight()/3;
+            int tileTop = tile.getY() - tile.getImage().getHeight()/2;
+            int playerHalf = getImage().getHeight()/2;
             
-            setLocation(getX(), tileTopLocation);
+            setLocation(getX(), tileTop - playerHalf);
             
             //updates real ground level
             groundY = getY();
