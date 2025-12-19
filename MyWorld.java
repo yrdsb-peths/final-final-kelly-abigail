@@ -29,4 +29,9 @@ public class MyWorld extends World
         Enemy enemyOne = new Enemy();
         addObject(enemyOne, 300, worldHeight - 60);
     }
+    
+    public void addHealthTracker(){
+        HealthTracker health = new HealthTracker();
+        addObject(health, 600 - 30, 30);
+    }
 }

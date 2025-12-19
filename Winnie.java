@@ -30,6 +30,7 @@ public class Winnie extends Actor {
         jump();
         gravity();
         collisionGround();
+        collisionEnemy();
     }
     private void moveLeftRight() {
         if (Greenfoot.isKeyDown("left")) {
@@ -74,4 +75,18 @@ public class Winnie extends Actor {
             jumping = false;
         }
     }
+    private void collisionEnemy(){
+        Enemy enemy = (Enemy)getOneIntersectingObject(Enemy.class);
+        
+        if(enemy != null){
+            int enemyTop = enemy.getY() - enemy.getImage().getHeight() / 2;
+            int playerBottom = getY() + getImage().getHeight() / 2;
+            if(playerBottom <= enemyTop + 5){
+                getWorld().removeObject(enemy);
+            }else{
+                getWorld().removeObject(this);
+            }
+        }
+        
+        }
     }
