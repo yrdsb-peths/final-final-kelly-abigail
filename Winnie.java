@@ -48,6 +48,10 @@ public class Winnie extends Actor {
         
     }
     
+    private boolean isMoving() {
+        return Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("right");
+    }
+    
     public void act() {
         
         // key movement of winnie
@@ -55,7 +59,13 @@ public class Winnie extends Actor {
         jump();
         gravity();
         collisionGround();
-        animateWinnie();
+        
+        if (isMoving()) {
+            animateWinnie();
+        } else {
+            setImage(idle[0]);
+            imageIndex = 0;
+        }
     }
     
     private void moveLeftRight() {
