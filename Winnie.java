@@ -27,7 +27,7 @@ public class Winnie extends Actor {
     public Winnie() {
         for(int i = 0; i < idle.length; i++) {
             idle[i] = new GreenfootImage("winnie_idle/idle" + i + ".png");
-            idle[i].scale(60, 80);
+            idle[i].scale(40, 60);
         }
         
         setImage(idle[0]);
