@@ -18,7 +18,8 @@ public class Winnie extends Actor {
     int jumpSpeed = 5;
     int maxJumpHeight = 100;
     boolean jumping = false;
-    
+    boolean canTakeDamage = true;
+    int coolDownTimer = 0;
     public Winnie() {
         GreenfootImage img = getImage();
         img.scale(20, 40);
@@ -31,6 +32,7 @@ public class Winnie extends Actor {
         gravity();
         collisionGround();
         collisionEnemy();
+        damageCooldown();
     }
     private void moveLeftRight() {
         if (Greenfoot.isKeyDown("left")) {
@@ -77,16 +79,27 @@ public class Winnie extends Actor {
     }
     private void collisionEnemy(){
         Enemy enemy = (Enemy)getOneIntersectingObject(Enemy.class);
-        
+        MyWorld w = (MyWorld) getWorld();
         if(enemy != null){
             int enemyTop = enemy.getY() - enemy.getImage().getHeight() / 2;
             int playerBottom = getY() + getImage().getHeight() / 2;
             if(playerBottom <= enemyTop + 5){
                 getWorld().removeObject(enemy);
-            }else{
-                getWorld().removeObject(this);
+                jumpSpeed = -8;
+                jumping = true;
+            }else if(canTakeDamage){
+                w.loseHp();
+                canTakeDamage = false;
+                coolDownTimer = 30;
             }
         }
-        
         }
+    private void damageCooldown(){
+        if(!canTakeDamage){
+            coolDownTimer--;
+            if(coolDownTimer <=0){
+                canTakeDamage = true;
+            }
+        }
+    }
     }

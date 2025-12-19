@@ -4,12 +4,15 @@ public class MyWorld extends World
 {
     private int wordWidth = this.getWidth();
     private int worldHeight = this.getHeight();
+    HealthTracker health;
+    
     public MyWorld(){
         super(600, 300, 1);
         addWinnie();
         addGroundTiles();
         addEnemy();
         addObject(new Timer(), 30, 30);
+        addHealthTracker();
     }
     
     public void addWinnie(){
@@ -31,7 +34,11 @@ public class MyWorld extends World
     }
     
     public void addHealthTracker(){
-        HealthTracker health = new HealthTracker();
+        health = new HealthTracker();
         addObject(health, 600 - 30, 30);
     }
+    
+    public void loseHp(){
+        health.decreaseHp();
+    } 
 }

@@ -8,12 +8,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class HealthTracker extends Actor
 {
-    /**
-     * Act - do whatever the HealthTracker wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        // Add your action code here.
+    GreenfootImage[] healthbars = new GreenfootImage[4];
+    public int hp = 3;
+    
+    public HealthTracker(){
+        for(int i = 3; i >= 0; i--){
+            healthbars[i] = new GreenfootImage("images/healthbars/hp" + i + ".png");
+            healthbars[i].scale(40,40);
+        }
+        setImage(healthbars[hp]);
+    }
+    
+    public void decreaseHp(){
+        if(hp >= 0){
+            hp --;
+            setImage(healthbars[hp]);
+        }else if(hp < 0){
+            //lose game
+        }
     }
 }
