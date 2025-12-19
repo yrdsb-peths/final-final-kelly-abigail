@@ -8,6 +8,7 @@ public class MyWorld extends World
         super(600, 300, 1);
         addWinnie();
         addGroundTiles();
+        addEnemy();
         addObject(new Timer(), 30, 30);
     }
     
@@ -22,5 +23,10 @@ public class MyWorld extends World
             GroundTile one = new GroundTile();
             addObject(one, 20 + (20 * i), worldHeight - 20);
         }
+    }
+    
+    public void addEnemy(){
+        Enemy enemyOne = new Enemy();
+        addObject(enemyOne, 300, worldHeight - 60);
     }
 }
