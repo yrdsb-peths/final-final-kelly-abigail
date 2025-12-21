@@ -21,12 +21,20 @@ public class Timer extends Actor
     }
     
     public void act() {
-       frameCount++;
-       if (frameCount == 60 && time > 0) {
-           time--;
-           frameCount = 0;
-           updateImage();
-       }
+        if (time > 0) {
+           frameCount++;
+           if (frameCount == 60) {
+               time--;
+               frameCount = 0;
+               updateImage();
+           }
+        } else {
+            showGameOver();
+        }
+    }
+    
+    private void showGameOver() {
+        setImage(new GreenfootImage("GAME OVER", 50, Color.RED, Color.WHITE));
     }
     
     private void updateImage() {

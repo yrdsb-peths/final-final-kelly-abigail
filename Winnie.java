@@ -19,18 +19,25 @@ public class Winnie extends Actor {
     int maxJumpHeight = 100;
     boolean jumping = false;
     
+    
+    boolean facingRight = true;
     int animDelay = 0;
     
-    GreenfootImage[] idle = new GreenfootImage[10];
+    GreenfootImage[] idleForward = new GreenfootImage[10];
+    GreenfootImage[] idleBackward = new GreenfootImage[10];
     
     
     public Winnie() {
-        for(int i = 0; i < idle.length; i++) {
-            idle[i] = new GreenfootImage("winnie_idle/idle" + i + ".png");
-            idle[i].scale(40, 60);
+        for(int i = 0; i < 10; i++) {
+            idleForward[i] = new GreenfootImage("winnie_idle_forwards/idle" + i + ".png");
+            idleBackward[i] = new GreenfootImage("winnie_idle_backwards/idle" + i + ".png");
+            
+            idleForward[i].scale(40, 60);
+            idleBackward[i].scale(40, 60);
         }
         
-        setImage(idle[0]);
+        // have default image facing right
+        setImage(idleForward[0]);
     }
     
     /**
@@ -42,9 +49,14 @@ public class Winnie extends Actor {
     public void animateWinnie() {
         animDelay++;
         if (animDelay % 6 == 0) {
-            setImage(idle[imageIndex]);
-            imageIndex = (imageIndex + 1) % idle.length;
+            if (facingRight) {
+                setImage(idleForward[imageIndex]);
+            } else {
+                setImage(idleBackward[imageIndex]);
+            }
         }
+        
+        imageIndex = (imageIndex + 1) % 10;
         
     }
     
@@ -63,7 +75,11 @@ public class Winnie extends Actor {
         if (isMoving()) {
             animateWinnie();
         } else {
-            setImage(idle[0]);
+            if (facingRight) {
+                setImage(idleForward[0]);
+            } else {
+                setImage(idleBackward[0]);
+            }
             imageIndex = 0;
         }
     }
@@ -71,9 +87,11 @@ public class Winnie extends Actor {
     private void moveLeftRight() {
         if (Greenfoot.isKeyDown("left")) {
             setLocation(getX() - speed, getY());
+            facingRight = false;
         }
         else if (Greenfoot.isKeyDown("right")) {
             setLocation(getX() + speed, getY());
+            facingRight = true;
         }
     }
     
