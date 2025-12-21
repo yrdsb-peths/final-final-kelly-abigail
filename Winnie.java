@@ -20,6 +20,7 @@ public class Winnie extends Actor {
     boolean jumping = false;
     boolean canTakeDamage = true;
     int coolDownTimer = 0;
+    int cameraX = 300;
     public Winnie() {
         GreenfootImage img = getImage();
         img.scale(20, 40);
@@ -39,7 +40,11 @@ public class Winnie extends Actor {
             setLocation(getX() - speed, getY());
         }
         else if (Greenfoot.isKeyDown("right")) {
-            setLocation(getX() + speed, getY());
+            if(getX() < 300){
+                setLocation(getX() + speed, getY());
+            }else{
+                scrollWord(-speed);
+            }
         }
     }
     private void jump() {
@@ -83,7 +88,7 @@ public class Winnie extends Actor {
         if(enemy != null){
             int enemyTop = enemy.getY() - enemy.getImage().getHeight() / 2;
             int playerBottom = getY() + getImage().getHeight() / 2;
-            if(playerBottom <= enemyTop + 5){
+            if(playerBottom <= enemyTop + 5 && jumpSpeed > 0){
                 getWorld().removeObject(enemy);
                 jumpSpeed = -8;
                 jumping = true;
@@ -101,5 +106,8 @@ public class Winnie extends Actor {
                 canTakeDamage = true;
             }
         }
+    }
+    private void scrollWorld(){
+        for(Wor)
     }
     }
