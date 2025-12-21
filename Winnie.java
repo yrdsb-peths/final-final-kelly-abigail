@@ -43,7 +43,7 @@ public class Winnie extends Actor {
             if(getX() < 300){
                 setLocation(getX() + speed, getY());
             }else{
-                scrollWord(-speed);
+                scrollWorld(speed);
             }
         }
     }
@@ -107,7 +107,9 @@ public class Winnie extends Actor {
             }
         }
     }
-    private void scrollWorld(){
-        for(Wor)
+    private void scrollWorld(int dx){
+        for(WorldObject obj : getWorld().getObjects(WorldObject.class)){
+            obj.move(dx);
+        }
     }
     }
