@@ -14,7 +14,6 @@ public class GroundTile extends Tile
         setImage(groundTile);
         
     }
-    
     public void act()
     {
         // Add your action code here.
