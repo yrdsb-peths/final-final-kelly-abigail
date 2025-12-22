@@ -25,7 +25,7 @@ public class MyWorld extends World
     
     public void addGroundTiles(){
         int tileSize = 40;
-        int numberOfTiles = 50;
+        int numberOfTiles = 10000;
         
         for (int i  = 0; i < numberOfTiles; i++) {
             GroundTile tile = new GroundTile();

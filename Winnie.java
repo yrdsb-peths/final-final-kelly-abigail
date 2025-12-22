@@ -100,19 +100,30 @@ public class Winnie extends Actor {
     }
     
     private void moveLeftRight() {
+        int newX = getX();
+        
         if (Greenfoot.isKeyDown("left")) {
-            setLocation(getX() - speed, getY());
+            newX -= speed;
             facingRight = false;
         }
         else if (Greenfoot.isKeyDown("right")) {
-            setLocation(getX() + speed, getY());
+            newX += speed;
             facingRight = true;
-            if(getX() < 300){
-                setLocation(getX() + speed, getY());
-            }else{
+            
+            if(newX > 300){
                 scrollWorld(speed);
+                newX = 300;
             }
         }
+        
+        int halfWidth = getImage().getWidth()/2;
+        if (newX < halfWidth) {
+            newX = halfWidth;
+        } else if (newX > getWorld().getWidth() - halfWidth) {
+            newX = getWorld().getWidth() - halfWidth;
+        }
+        
+        setLocation(newX, getY());
     }
     
     private void jump() {
