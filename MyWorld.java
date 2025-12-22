@@ -6,6 +6,7 @@ public class MyWorld extends World
     private int worldHeight = this.getHeight();
     HealthTracker health;
     
+    Winnie winnie;
     
     public MyWorld(){
         super(600, 300, 1, false);
@@ -18,7 +19,7 @@ public class MyWorld extends World
     
     public void addWinnie(){
         // adds the winnie to the screen
-        Winnie winnie = new Winnie();
+        winnie = new Winnie();
         addObject(winnie, 40, 220);
     }
     
@@ -38,7 +39,7 @@ public class MyWorld extends World
     }
     
     public void addHealthTracker(){
-        health = new HealthTracker();
+        health = new HealthTracker(winnie);
         addObject(health, 600 - 30, 30);
     }
     

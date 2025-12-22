@@ -30,6 +30,9 @@ public class Winnie extends Actor {
     boolean canTakeDamage = true;
     int coolDownTimer = 0;
     int cameraX = 300;
+    
+    boolean canMove = true;
+    
     public Winnie() {
         for(int i = 0; i < 10; i++) {
             idleForward[i] = new GreenfootImage("winnie_idle_forwards/idle" + i + ".png");
@@ -68,6 +71,9 @@ public class Winnie extends Actor {
     }
     
     public void act() {
+        if (!canMove) {
+            return;
+        }
         
         // key movement of winnie
         moveLeftRight();
@@ -87,6 +93,10 @@ public class Winnie extends Actor {
         }
         collisionEnemy();
         damageCooldown();
+    }
+    
+    public void stopMoving() {
+        canMove = false;
     }
     
     private void moveLeftRight() {
@@ -142,6 +152,7 @@ public class Winnie extends Actor {
             jumping = false;
         }
     }
+    
     private void collisionEnemy(){
         Enemy enemy = (Enemy)getOneIntersectingObject(Enemy.class);
         MyWorld w = (MyWorld) getWorld();
@@ -158,7 +169,8 @@ public class Winnie extends Actor {
                 coolDownTimer = 30;
             }
         }
-        }
+    }
+    
     private void damageCooldown(){
         if(!canTakeDamage){
             coolDownTimer--;
@@ -167,6 +179,7 @@ public class Winnie extends Actor {
             }
         }
     }
+    
     private void scrollWorld(int dx){
         for(WorldObject obj : getWorld().getObjects(WorldObject.class)){
             obj.move(dx);
