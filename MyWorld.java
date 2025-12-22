@@ -7,7 +7,7 @@ public class MyWorld extends World
     HealthTracker health;
     
     public MyWorld(){
-        super(600, 300, 1);
+        super(600, 300, 1, false);
         addWinnie();
         addGroundTiles();
         addEnemy();
@@ -29,7 +29,7 @@ public class MyWorld extends World
     }
     
     public void addEnemy(){
-        Enemy enemyOne = new Enemy();
+        Enemy enemyOne = new Enemy(300, 250, 350);
         addObject(enemyOne, 300, worldHeight - 60);
     }
     

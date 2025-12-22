@@ -13,6 +13,6 @@ public class WorldObject extends Actor
      */
     public void move(int x)
     {
-         setLocation(getX() - x, getY());
+        setLocation(getX() - x, getY());
     }
 }

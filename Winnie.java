@@ -27,6 +27,9 @@ public class Winnie extends Actor {
     GreenfootImage[] idleBackward = new GreenfootImage[10];
     
     
+    boolean canTakeDamage = true;
+    int coolDownTimer = 0;
+    int cameraX = 300;
     public Winnie() {
         for(int i = 0; i < 10; i++) {
             idleForward[i] = new GreenfootImage("winnie_idle_forwards/idle" + i + ".png");
@@ -82,6 +85,8 @@ public class Winnie extends Actor {
             }
             imageIndex = 0;
         }
+        collisionEnemy();
+        damageCooldown();
     }
     
     private void moveLeftRight() {
@@ -92,6 +97,11 @@ public class Winnie extends Actor {
         else if (Greenfoot.isKeyDown("right")) {
             setLocation(getX() + speed, getY());
             facingRight = true;
+            if(getX() < 300){
+                setLocation(getX() + speed, getY());
+            }else{
+                scrollWorld(speed);
+            }
         }
     }
     
@@ -132,4 +142,35 @@ public class Winnie extends Actor {
             jumping = false;
         }
     }
+    private void collisionEnemy(){
+        Enemy enemy = (Enemy)getOneIntersectingObject(Enemy.class);
+        MyWorld w = (MyWorld) getWorld();
+        if(enemy != null){
+            int enemyTop = enemy.getY() - enemy.getImage().getHeight() / 2;
+            int playerBottom = getY() + getImage().getHeight() / 2;
+            if(playerBottom <= enemyTop + 5 && jumpSpeed > 0){
+                getWorld().removeObject(enemy);
+                jumpSpeed = -8;
+                jumping = true;
+            }else if(canTakeDamage){
+                w.loseHp();
+                canTakeDamage = false;
+                coolDownTimer = 30;
+            }
+        }
+        }
+    private void damageCooldown(){
+        if(!canTakeDamage){
+            coolDownTimer--;
+            if(coolDownTimer <=0){
+                canTakeDamage = true;
+            }
+        }
+    }
+    private void scrollWorld(int dx){
+        for(WorldObject obj : getWorld().getObjects(WorldObject.class)){
+            obj.move(dx);
+        }
+    }
 }
+
