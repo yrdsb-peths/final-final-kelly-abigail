@@ -6,6 +6,7 @@ public class MyWorld extends World
     private int worldHeight = this.getHeight();
     HealthTracker health;
     
+    
     public MyWorld(){
         super(600, 300, 1, false);
         addWinnie();
@@ -22,9 +23,12 @@ public class MyWorld extends World
     }
     
     public void addGroundTiles(){
-        for(int i = 0; i < 30; i++){
-            GroundTile one = new GroundTile();
-            addObject(one, 20 + (20 * i), worldHeight - 20);
+        int tileSize = 40;
+        int numberOfTiles = 50;
+        
+        for (int i  = 0; i < numberOfTiles; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, tileSize/2 + (tileSize * i), worldHeight - tileSize/2);
         }
     }
     
