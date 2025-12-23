@@ -31,6 +31,11 @@ public class MyWorld extends World
             GroundTile tile = new GroundTile();
             addObject (tile, tileSize/2 + (tileSize * i), worldHeight - tileSize/2);
         }
+        
+        for (int i  = 0; i < 4; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 100 + (tileSize * i), worldHeight - 100);
+        }
     }
     
     public void addEnemy(){

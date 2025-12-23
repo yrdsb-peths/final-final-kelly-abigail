@@ -161,6 +161,9 @@ public class Winnie extends Actor {
             //updates real ground level
             groundY = getY();
             jumping = false;
+        }else{
+            //if not touching ground sets the groundY to zero to find new gorundY 
+            groundY = 0;
         }
     }
     
