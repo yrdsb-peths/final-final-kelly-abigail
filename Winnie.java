@@ -16,7 +16,7 @@ public class Winnie extends Actor {
     
     int groundY = 260;
     int jumpSpeed = 5;
-    int maxJumpHeight = 100;
+    int maxJumpHeight = 200;
     boolean jumping = false;
     
     
@@ -163,7 +163,7 @@ public class Winnie extends Actor {
             jumping = false;
         }else{
             //if not touching ground sets the groundY to zero to find new gorundY 
-            groundY = 0;
+            groundY = 300;
         }
     }
     

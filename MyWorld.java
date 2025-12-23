@@ -34,7 +34,7 @@ public class MyWorld extends World
         
         for (int i  = 0; i < 4; i++) {
             GroundTile tile = new GroundTile();
-            addObject (tile, 100 + (tileSize * i), worldHeight - 100);
+            addObject (tile, 100 + (tileSize * i), worldHeight - 130);
         }
     }
     
