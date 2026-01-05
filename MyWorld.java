@@ -7,14 +7,16 @@ public class MyWorld extends World
     HealthTracker health;
     
     Winnie winnie;
+    Points score;
     
     public MyWorld(){
         super(600, 300, 1, false);
         addWinnie();
         addGroundTiles();
         addEnemy();
-        addObject(new Timer(), 30, 30);
+        addObject(new Timer(), 60, 30);
         addHealthTracker();
+        addScore();
     }
     
     public void addWinnie(){
@@ -94,4 +96,13 @@ public class MyWorld extends World
     public void loseHp(){
         health.decreaseHp();
     } 
+    
+    public void addScore() {
+        score = new Points();
+        addObject(score, 50, 55);
+    }
+    
+    public void addPoints(int amount) {
+        score.addPoints(amount);
+    }
 }

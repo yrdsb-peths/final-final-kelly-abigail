@@ -38,6 +38,6 @@ public class Timer extends Actor
     }
     
     private void updateImage() {
-        setImage(new GreenfootImage("" + time, 30, Color.BLACK, Color.WHITE));
+        setImage(new GreenfootImage("Timer: " + time, 24, Color.BLACK, Color.WHITE));
     }
 }
