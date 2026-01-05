@@ -13,7 +13,7 @@ public class Timer extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    int time = 500;
+    int time = 100;
     int frameCount = 0;
     
     public Timer() {
