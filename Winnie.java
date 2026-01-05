@@ -16,7 +16,7 @@ public class Winnie extends Actor {
     
     int groundY = 260;
     int jumpSpeed = 5;
-    int maxJumpHeight = 200;
+    int maxJumpHeight = 250;
     boolean jumping = false;
     
     
