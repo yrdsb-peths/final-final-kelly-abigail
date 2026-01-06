@@ -29,12 +29,8 @@ public class Timer extends Actor
                updateImage();
            }
         } else {
-            showGameOver();
+            Greenfoot.setWorld(new TerminateGame());
         }
-    }
-    
-    private void showGameOver() {
-        setImage(new GreenfootImage("GAME OVER", 50, Color.RED, Color.WHITE));
     }
     
     private void updateImage() {
