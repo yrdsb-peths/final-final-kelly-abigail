@@ -16,7 +16,7 @@ public class Winnie extends Actor {
     
     int groundY = 260;
     int jumpSpeed = 5;
-    int maxJumpHeight = 200;
+    int maxJumpHeight = 250;
     boolean jumping = false;
     
     
@@ -174,7 +174,7 @@ public class Winnie extends Actor {
             int enemyTop = enemy.getY() - enemy.getImage().getHeight() / 2;
             int playerBottom = getY() + getImage().getHeight() / 2;
             if(playerBottom <= enemyTop + 5 && jumpSpeed > 0){
-                getWorld().removeObject(enemy);
+                enemy.die();
                 jumpSpeed = -8;
                 jumping = true;
             }else if(canTakeDamage){

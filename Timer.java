@@ -13,7 +13,7 @@ public class Timer extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    int time = 500;
+    int time = 100;
     int frameCount = 0;
     
     public Timer() {
@@ -28,16 +28,17 @@ public class Timer extends Actor
                frameCount = 0;
                updateImage();
            }
+<<<<<<< HEAD
         } else if(time < 0) {
             showGameOver();
+=======
+        } else {
+            Greenfoot.setWorld(new TerminateGame());
+>>>>>>> 18b6232501787bf8c63f9b43522775a30af94e06
         }
     }
     
-    private void showGameOver() {
-        setImage(new GreenfootImage("GAME OVER", 50, Color.RED, Color.WHITE));
-    }
-    
     private void updateImage() {
-        setImage(new GreenfootImage("" + time, 30, Color.BLACK, Color.WHITE));
+        setImage(new GreenfootImage("Timer: " + time, 24, Color.BLACK, Color.WHITE));
     }
 }

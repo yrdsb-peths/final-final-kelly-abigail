@@ -13,6 +13,8 @@ public class Enemy extends WorldObject
     private int leftLimit;
     private int rightLimit;
     private int speed = 1;
+    private boolean isDead = false;
+    
     public Enemy(int startX, int left, int right){
         setImage(img);
         img.scale(20,20);
@@ -21,11 +23,12 @@ public class Enemy extends WorldObject
         rightLimit = right;
         
     }
-    public void act()
-    {
+    
+    public void act() {
         enemyMove();
     }
-    public void enemyMove(){
+    
+    public void enemyMove() {
         worldX += speed;
         move(speed);
         if(worldX <= leftLimit || worldX >= rightLimit){
@@ -34,9 +37,22 @@ public class Enemy extends WorldObject
         
         updateScreenPosition();
     }
-    private void updateScreenPosition(){
+    
+    private void updateScreenPosition() {
         if(getX() < -50){
-            getWorld().removeObject(this);
+            die();
         }
+    }
+    
+    public void die() {
+        if (isDead) {
+            return;
+        }
+        
+        isDead = true;
+        
+        MyWorld world = (MyWorld) getWorld();
+        world.addPoints(10);
+        world.removeObject(this);
     }
 }
