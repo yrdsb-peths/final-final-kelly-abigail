@@ -26,21 +26,28 @@ public class Enemy extends WorldObject
     
     public void act() {
         enemyMove();
-        enemyGravity();
+        if(getWorld() != null){
+            enemyGravity();
+        }
     }
     
     public void enemyMove() {
-        worldX += speed;
-        move(speed);
-        if(worldX <= leftLimit || worldX >= rightLimit){
-            speed *= -1;
-        }
         
-        updateScreenPosition();
+        if(getX() <= 700){
+            worldX += speed;
+            move(speed);
+            if(worldX <= leftLimit || worldX >= rightLimit){
+                speed *= -1;
+            }
+        
+            updateScreenPosition();
+        }
     }
     
     public void enemyGravity(){
+        
         GroundTile tile =  (GroundTile)getOneIntersectingObject(GroundTile.class);
+        
         
         if(tile == null){
             verticalSpeed = 5;

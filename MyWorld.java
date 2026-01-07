@@ -81,8 +81,20 @@ public class MyWorld extends World
     }
     
     public void addEnemy(){
-        Enemy enemyOne = new Enemy(200, 100, 350);
-        addObject(enemyOne, 200, worldHeight - 200);
+        Enemy enemyOne = new Enemy(250, 100, 350);
+        addObject(enemyOne, 250, worldHeight - 50);
+        
+        Enemy enemyTwo = new Enemy(600, 500, 700);
+        addObject(enemyTwo, 600, worldHeight - 50);
+        
+        Enemy enemyThree = new Enemy(850, 600, 900);
+        addObject(enemyThree, 850, worldHeight - 200);
+        
+        Enemy enemyFour = new Enemy(800, 600, 900);
+        addObject(enemyFour, 800, worldHeight - 50);
+        
+        Enemy enemyFive = new Enemy(1200,1000 , 1500);
+        addObject(enemyFive, 1000, worldHeight - 50);
     }
     
     public void addHealthTracker(){
