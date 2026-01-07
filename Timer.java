@@ -28,7 +28,7 @@ public class Timer extends Actor
                frameCount = 0;
                updateImage();
            }
-        } else {
+        } else if(time < 0) {
             showGameOver();
         }
     }
