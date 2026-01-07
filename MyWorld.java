@@ -93,7 +93,7 @@ public class MyWorld extends World
         Enemy enemyFour = new Enemy(800, 600, 900);
         addObject(enemyFour, 800, worldHeight - 50);
         
-        Enemy enemyFive = new Enemy(1200,1000 , 1500);
+        Enemy enemyFive = new Enemy(1200,1000, 1500);
         addObject(enemyFive, 1000, worldHeight - 50);
     }
     

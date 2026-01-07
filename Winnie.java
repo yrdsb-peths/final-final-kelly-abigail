@@ -159,26 +159,38 @@ public class Winnie extends Actor {
         
         if (tile != null) {
             int tileTop = tile.getY() - tile.getImage().getHeight()/2;
+            int tileBottom = tile.getY() + tile.getImage().getHeight()/2;
+            
             int actorHalf = getImage().getHeight()/2;
+            int actorTop = getY() - actorHalf;
+            int actorBottom = getY() + actorHalf;
             
             // land only when falling
-            if (ySpeed >= 0 && getY() + actorHalf <= tileTop + 10) {
+            if (ySpeed >= 0 && getY() + actorHalf <= tileTop + 10 && actorBottom <= tileTop + 10) {
                 setLocation(getX(), tileTop - actorHalf);
+                groundY = getY();
                 ySpeed = 0;
+                jumping = false;
                 onGround = true;
+            } else if (actorTop <= tileBottom + 5 && ySpeed < 0) {
+                setLocation(getX(), tileBottom + actorHalf);
+                ySpeed = 3;
+                jumpSpeed = 0;
+                jumping = false;
             }
+            
         } else {
             onGround = false;
         }
     }
     
-    private void collisionEnemy(){
+    private void collisionEnemy() {
         Enemy enemy = (Enemy)getOneIntersectingObject(Enemy.class);
         MyWorld w = (MyWorld) getWorld();
         if(enemy != null){
             int enemyTop = enemy.getY() - enemy.getImage().getHeight() / 2;
             int playerBottom = getY() + getImage().getHeight() / 2;
-            if(playerBottom <= enemyTop + 5 && jumpSpeed > 0){
+            if(playerBottom <= enemyTop + 5 ){
                 enemy.die();
                 jumpSpeed = -8;
                 jumping = true;
