@@ -92,6 +92,7 @@ public class Winnie extends Actor {
             imageIndex = 0;
         }
         collisionEnemy();
+        fall();
         damageCooldown();
     }
     
@@ -197,6 +198,12 @@ public class Winnie extends Actor {
     private void scrollWorld(int dx){
         for(WorldObject obj : getWorld().getObjects(WorldObject.class)){
             obj.move(dx);
+        }
+    }
+    
+    private void fall(){
+        if(this.getY() > 280){
+            Greenfoot.setWorld(new TerminateGame());
         }
     }
 }
