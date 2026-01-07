@@ -71,12 +71,133 @@ public class MyWorld extends World
         
         for (int i  = 0; i < 4; i++) {
             GroundTile tile = new GroundTile();
-            addObject (tile, 2000 + (tileSize * i), worldHeight - 130);
+            addObject (tile, 1600 +  (tileSize * i), worldHeight - 130);
+        }
+        
+        for (int i  = 0; i < 4; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 1900 + (tileSize * i), worldHeight - 130);
         }
         
         for (int i  = 0; i < 4; i++) {
             GroundTile tile = new GroundTile();
             addObject (tile, 2500 + (tileSize * i), worldHeight - 130);
+        }
+        
+        for (int i  = 0; i < 4; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 2800 + (tileSize * i), worldHeight - 150);
+        }
+        
+        for (int i  = 0; i < 4; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 3000 + (tileSize * i), worldHeight - 130);
+        }
+        
+        for (int i  = 0; i < 1; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 3640 + (tileSize * i), worldHeight - 130);
+        }
+        
+        for (int i  = 0; i < 4; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 4000 + (tileSize * i), worldHeight - 130);
+        }
+        
+        for (int i  = 0; i < 4; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 4400 + (tileSize * i), worldHeight - 130);
+        }
+        
+        for (int i  = 0; i < 2; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 4700 + (tileSize * i), worldHeight - 130);
+        }
+        
+        for (int i  = 0; i < 4; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 4900 + (tileSize * i), worldHeight - 150);
+        }
+        
+        for (int i  = 0; i < 4; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 5200 + (tileSize * i), worldHeight - 150);
+        }
+        
+        for (int i  = 0; i < 2; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 5400 + (tileSize * i), worldHeight - 150);
+        }
+        
+        for (int i  = 0; i < 2; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 5600 + (tileSize * i), worldHeight - 120);
+        }
+        
+        for (int i  = 0; i < 2; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 5750 + (tileSize * i), worldHeight - 120);
+        }
+        
+        for (int i  = 0; i < 2; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 5950 + (tileSize * i), worldHeight - 130);
+        }
+        
+        for (int i  = 0; i < 2; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 6150 + (tileSize * i), worldHeight - 140);
+        }
+        
+        for (int i  = 0; i < 3; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 6350 + (tileSize * i), worldHeight - 150);
+        }
+        
+        for (int i  = 0; i < 2; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 6550 + (tileSize * i), worldHeight - 150);
+        }
+        
+        for (int i  = 0; i < 2; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 6750 + (tileSize * i), worldHeight - 150);
+        }
+        
+        for (int i  = 0; i < 2; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 6950 + (tileSize * i), worldHeight - 150);
+        }
+        
+        for (int i  = 0; i < 2; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 7150 + (tileSize * i), worldHeight - 150);
+        }
+        
+        for (int i  = 0; i < 2; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 7300 + (tileSize * i), worldHeight - 130);
+        }
+        
+        
+        for (int i  = 0; i < 2; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 7500 + (tileSize * i), worldHeight - 150);
+        }
+        
+        for (int i  = 0; i < 2; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 7700 + (tileSize * i), worldHeight - 130);
+        }
+        
+        for (int i  = 0; i < 2; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 7900 + (tileSize * i), worldHeight - 150);
+        }
+        
+        for (int i  = 0; i < 2; i++) {
+            GroundTile tile = new GroundTile();
+            addObject (tile, 8100 + (tileSize * i), worldHeight - 150);
         }
     }
     
