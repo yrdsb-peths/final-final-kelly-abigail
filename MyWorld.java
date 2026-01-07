@@ -81,11 +81,8 @@ public class MyWorld extends World
     }
     
     public void addEnemy(){
-        Enemy enemyOne = new Enemy(300, 250, 350);
-        addObject(enemyOne, 300, worldHeight - 60);
-        
-        Enemy enemyTwo = new Enemy(500, 250, 350);
-        addObject(enemyOne, 300, worldHeight - 60);
+        Enemy enemyOne = new Enemy(200, 100, 350);
+        addObject(enemyOne, 200, worldHeight - 200);
     }
     
     public void addHealthTracker(){

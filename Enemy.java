@@ -13,6 +13,7 @@ public class Enemy extends WorldObject
     private int leftLimit;
     private int rightLimit;
     private int speed = 1;
+    private int verticalSpeed = 0;
     private boolean isDead = false;
     
     public Enemy(int startX, int left, int right){
@@ -21,11 +22,11 @@ public class Enemy extends WorldObject
         worldX = startX;
         leftLimit = left;
         rightLimit = right;
-        
     }
     
     public void act() {
         enemyMove();
+        enemyGravity();
     }
     
     public void enemyMove() {
@@ -36,6 +37,20 @@ public class Enemy extends WorldObject
         }
         
         updateScreenPosition();
+    }
+    
+    public void enemyGravity(){
+        GroundTile tile =  (GroundTile)getOneIntersectingObject(GroundTile.class);
+        
+        if(tile == null){
+            verticalSpeed = 5;
+            setLocation(getX(), getY() + verticalSpeed);
+        }else if(tile != null ){
+            int tileTop = tile.getY() - tile.getImage().getHeight()/2;
+            int playerHalf = getImage().getHeight()/2;
+            
+            verticalSpeed = 0;
+        }
     }
     
     private void updateScreenPosition() {
