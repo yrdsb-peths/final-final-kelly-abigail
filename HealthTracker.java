@@ -18,7 +18,7 @@ public class HealthTracker extends Actor
         winnie = w;
         for(int i = 3; i >= 0; i--){
             healthbars[i] = new GreenfootImage("images/healthbars/hp" + i + ".png");
-            healthbars[i].scale(40, 40);
+            healthbars[i].scale(70, 60);
         }
         setImage(healthbars[hp]);
     }

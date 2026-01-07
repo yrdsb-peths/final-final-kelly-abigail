@@ -99,7 +99,7 @@ public class MyWorld extends World
     
     public void addHealthTracker(){
         health = new HealthTracker(winnie);
-        addObject(health, 600 - 30, 30);
+        addObject(health, 600 - 50, 30);
     }
     
     public void loseHp(){

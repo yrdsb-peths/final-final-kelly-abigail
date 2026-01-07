@@ -151,19 +151,27 @@ public class Winnie extends Actor {
     
     private void collisionGround(){
         GroundTile tile = (GroundTile)getOneIntersectingObject(GroundTile.class);
-        //only Land if falling or standing
-        if(tile != null && jumpSpeed >= 0){
-            
-            int tileTop = tile.getY() - tile.getImage().getHeight()/2;
-            int playerHalf = getImage().getHeight()/2;
-            
-            setLocation(getX(), tileTop - playerHalf);
-            
-            //updates real ground level
-            groundY = getY();
-            jumping = false;
-        }else{
-            //if not touching ground sets the groundY to zero to find new gorundY 
+        
+        if( tile != null){
+            int tileTop = tile.getY() - tile.getImage().getHeight() / 2;
+            int tileBottom = tile.getY() + tile.getImage().getHeight() / 2;
+
+            int actorHalf = getImage().getHeight() / 2;
+            int actorTop = getY() - actorHalf;
+            int actorBottom = getY() + actorHalf;
+            //only Land if falling or standing
+            if(jumpSpeed >= 0 && actorBottom <= tileTop + 10){
+                setLocation(getX(), tileTop - actorHalf);
+                //updates real ground level
+                jumpSpeed = 0;
+                groundY = getY();
+                jumping = false;
+            }else if (jumpSpeed < 0 && actorTop >= tileBottom - 10) {
+                setLocation(getX(), tileBottom + actorHalf );
+                jumpSpeed = 5; // push down
+                jumping = false;
+            }
+        }else if(tile == null){
             groundY = 300;
         }
     }
