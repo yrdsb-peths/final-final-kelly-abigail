@@ -15,10 +15,14 @@ public class Winnie extends Actor {
     int speed = 4;
     
     int groundY = 260;
-    int jumpSpeed = 5;
+    int jumpSpeed = 3;
     int maxJumpHeight = 250;
     boolean jumping = false;
-    
+    boolean onGround = false;
+    boolean jumpKeyPressed = false;
+    int ySpeed = 0;
+    int gravity = 1;
+    int jumpPower = -16;
     
     boolean facingRight = true;
     int animDelay = 0;
@@ -128,51 +132,43 @@ public class Winnie extends Actor {
     }
     
     private void jump() {
-        if (Greenfoot.isKeyDown("up") && !jumping) {
-            jumping = true;
+        boolean upOnce = Greenfoot.isKeyDown("up");
+        
+        // can only jump on the key if it is pressed
+        if (upOnce && !jumpKeyPressed && onGround) {
+            ySpeed = jumpPower;
+            onGround = false;
         }
         
-        if (jumping) {
-            if (getY() > groundY - maxJumpHeight) {
-                jumpSpeed = -5;
-                setLocation(getX(), getY() + jumpSpeed);
-            } else {
-                jumping = false;
-            }
-        }
+        jumpKeyPressed = upOnce;
     }
     
     private void gravity() {
-        if (!jumping && getY() < groundY) {
-            jumpSpeed = 5;
-            setLocation(getX(), getY() + jumpSpeed);
+        ySpeed += gravity;
+        
+        // makes him fall slower
+        if (ySpeed > 8) {
+            ySpeed = 8;
         }
+        
+        setLocation(getX(), getY() + ySpeed);
     }
     
     private void collisionGround(){
         GroundTile tile = (GroundTile)getOneIntersectingObject(GroundTile.class);
         
-        if( tile != null){
-            int tileTop = tile.getY() - tile.getImage().getHeight() / 2;
-            int tileBottom = tile.getY() + tile.getImage().getHeight() / 2;
-
-            int actorHalf = getImage().getHeight() / 2;
-            int actorTop = getY() - actorHalf;
-            int actorBottom = getY() + actorHalf;
-            //only Land if falling or standing
-            if(jumpSpeed >= 0 && actorBottom <= tileTop + 10){
+        if (tile != null) {
+            int tileTop = tile.getY() - tile.getImage().getHeight()/2;
+            int actorHalf = getImage().getHeight()/2;
+            
+            // land only when falling
+            if (ySpeed >= 0 && getY() + actorHalf <= tileTop + 10) {
                 setLocation(getX(), tileTop - actorHalf);
-                //updates real ground level
-                jumpSpeed = 0;
-                groundY = getY();
-                jumping = false;
-            }else if (jumpSpeed < 0 && actorTop >= tileBottom - 10) {
-                setLocation(getX(), tileBottom + actorHalf );
-                jumpSpeed = 5; // push down
-                jumping = false;
+                ySpeed = 0;
+                onGround = true;
             }
-        }else if(tile == null){
-            groundY = 300;
+        } else {
+            onGround = false;
         }
     }
     
@@ -189,7 +185,7 @@ public class Winnie extends Actor {
             }else if(canTakeDamage){
                 w.loseHp();
                 canTakeDamage = false;
-                coolDownTimer = 30;
+                coolDownTimer = 50;
             }
         }
     }
