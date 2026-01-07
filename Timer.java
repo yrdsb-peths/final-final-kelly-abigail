@@ -28,13 +28,9 @@ public class Timer extends Actor
                frameCount = 0;
                updateImage();
            }
-<<<<<<< HEAD
-        } else if(time < 0) {
-            showGameOver();
-=======
         } else {
             Greenfoot.setWorld(new TerminateGame());
->>>>>>> 18b6232501787bf8c63f9b43522775a30af94e06
+
         }
     }
     
