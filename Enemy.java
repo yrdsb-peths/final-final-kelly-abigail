@@ -62,6 +62,7 @@ public class Enemy extends WorldObject
     
     private void updateScreenPosition() {
         if(getX() < -50){
+
             die();
         }
     }
@@ -74,7 +75,6 @@ public class Enemy extends WorldObject
         isDead = true;
         
         MyWorld world = (MyWorld) getWorld();
-        world.addPoints(10);
         world.removeObject(this);
     }
 }

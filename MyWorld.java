@@ -215,22 +215,25 @@ public class MyWorld extends World
         addObject(enemyFour, 800, worldHeight - 50);
         
         Enemy enemyFive = new Enemy(1200, 1000, 1500);
-        addObject(enemyFive, 1000, worldHeight - 50);
+        addObject(enemyFive, 1200, worldHeight - 50);
         
-        Enemy enemySix = new Enemy(1400, 1600, 1500);
-        addObject(enemySix, 1200, worldHeight - 50);
+        Enemy enemySix = new Enemy(1700, 1300, 2000);
+        addObject(enemySix, 1700, worldHeight - 50);
         
-        Enemy enemySeven = new Enemy(1600, 1900, 2000);
-        addObject(enemySeven, 1500, worldHeight - 50);
+        Enemy enemySeven = new Enemy(1800, 1700, 2000);
+        addObject(enemySeven, 1800, worldHeight - 50);
         
-        Enemy enemyEight = new Enemy(1800, 2000, 2100);
+        Enemy enemyEight = new Enemy(1850, 1700, 2000);
         addObject(enemyEight, 2000, worldHeight - 50);
         
-        Enemy enemyNine = new Enemy (1900, 2000, 2300);
-        addObject(enemyNine, 2200, worldHeight - 50);
+        Enemy enemyNine = new Enemy (1870, 1800, 2000);
+        addObject(enemyNine, 1870, worldHeight - 50);
         
-        Enemy enemyTen = new Enemy(2000, 2300, 2400);
-        addObject(enemyTen, 2300, worldHeight - 50);
+        Enemy enemyTen = new Enemy(1930, 1910, 1950);
+        addObject(enemyTen, 1900, worldHeight - 200);
+        
+        Enemy enemyEleven = new Enemy(2600, 2400, 2900);
+        addObject(enemyEleven, 2500, worldHeight - 50);
     }
     
     public void addHealthTracker(){
