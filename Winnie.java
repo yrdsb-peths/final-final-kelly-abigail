@@ -194,6 +194,9 @@ public class Winnie extends Actor {
                 enemy.die();
                 jumpSpeed = -8;
                 jumping = true;
+                
+                MyWorld world = (MyWorld) getWorld();
+                world.addPoints(10);
             }else if(canTakeDamage){
                 w.loseHp();
                 canTakeDamage = false;
