@@ -222,7 +222,7 @@ public class Winnie extends Actor {
     
     private void fall(){
         if(this.getY() > 280){
-            Greenfoot.setWorld(new TerminateGame());
+            Greenfoot.setWorld(new EndScreen());
         }
     }
 }
