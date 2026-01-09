@@ -31,7 +31,7 @@ public class HealthTracker extends Actor
             hp--;
             setImage(healthbars[0]);
             winnie.stopMoving();
-            Greenfoot.setWorld(new TerminateGame());
+            Greenfoot.setWorld(new EndScreen());
         }
     }
 }

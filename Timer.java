@@ -29,7 +29,7 @@ public class Timer extends Actor
                updateImage();
            }
         } else {
-            Greenfoot.setWorld(new TerminateGame());
+            Greenfoot.setWorld(new EndScreen());
 
         }
     }
