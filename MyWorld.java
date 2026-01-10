@@ -232,8 +232,20 @@ public class MyWorld extends World
         Enemy enemyTen = new Enemy(1930, 1910, 1950);
         addObject(enemyTen, 1900, worldHeight - 200);
         
-        Enemy enemyEleven = new Enemy(2600, 2400, 2900);
+        Enemy enemyEleven = new Enemy(2700, 2400, 2900);
         addObject(enemyEleven, 2500, worldHeight - 50);
+        
+        Enemy enemyTwelve = new Enemy(2800, 2500, 3000);
+        addObject(enemyTwelve, 2800, worldHeight - 50);
+        
+        Enemy enemyThirteen = new Enemy(2850, 2500, 3000);
+        addObject(enemyThirteen, 2850, worldHeight - 50);
+        
+        Enemy enemyFourteen = new Enemy(2950,2900 , 3000);
+        addObject(enemyFourteen, 2950, worldHeight - 50);
+        
+        Enemy enemyFifteen = new Enemy(2890,2800 , 3500);
+        addObject(enemyFifteen, 2890, worldHeight - 200);
     }
     
     public void addHealthTracker(){
