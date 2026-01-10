@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class TerminateGame extends World
+public class EndScreen extends World
 {
 
     /**
@@ -15,10 +15,10 @@ public class TerminateGame extends World
      */
 
     Label gameOver = new Label ("Game Over", 100);
-    public TerminateGame()
+    public EndScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(600, 300, 1); 
 
         addObject(gameOver, getWidth()/2, getHeight()/2);
 
@@ -45,5 +45,8 @@ public class TerminateGame extends World
         label.setLocation(369,261);
         label.setLocation(313,260);
         label.setLocation(304,257);
+        label.setLocation(338,217);
+        label.setLocation(324,201);
+        label.setLocation(308,200);
     }
 }
