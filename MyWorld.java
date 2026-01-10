@@ -229,8 +229,8 @@ public class MyWorld extends World
         Enemy enemyNine = new Enemy (1870, 1800, 2000);
         addObject(enemyNine, 1870, worldHeight - 50);
         
-        Enemy enemyTen = new Enemy(1930, 1910, 1950);
-        addObject(enemyTen, 1900, worldHeight - 200);
+        Enemy enemyTen = new Enemy(1940, 1930, 2000);
+        addObject(enemyTen, 1940, worldHeight - 200);
         
         Enemy enemyEleven = new Enemy(2700, 2400, 2900);
         addObject(enemyEleven, 2500, worldHeight - 50);
