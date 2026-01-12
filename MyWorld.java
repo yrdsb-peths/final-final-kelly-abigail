@@ -19,7 +19,6 @@ public class MyWorld extends World
         addHealthTracker();
         addScore();
         addBackround();
-        bgMusic.playLoop();
     }
     
     public void addWinnie(){
