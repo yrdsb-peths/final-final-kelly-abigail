@@ -22,7 +22,7 @@ public class MyWorld extends World
     public void addWinnie(){
         // adds the winnie to the screen
         winnie = new Winnie();
-        addObject(winnie, 40, 220);
+        addObject(winnie, 20, 220);
     }
     
     public void addGroundTiles(){
@@ -229,23 +229,62 @@ public class MyWorld extends World
         Enemy enemyNine = new Enemy (1870, 1800, 2000);
         addObject(enemyNine, 1870, worldHeight - 50);
         
-        Enemy enemyTen = new Enemy(1930, 1910, 1950);
-        addObject(enemyTen, 1900, worldHeight - 200);
+        Enemy enemyTen = new Enemy(1940, 1930, 2000);
+        addObject(enemyTen, 1940, worldHeight - 200);
         
-        Enemy enemyEleven = new Enemy(2700, 2400, 2900);
-        addObject(enemyEleven, 2500, worldHeight - 50);
+        Enemy enemyEleven = new Enemy(1950, 1930, 2000);
+        addObject(enemyEleven, 1950, worldHeight - 50);
         
-        Enemy enemyTwelve = new Enemy(2800, 2500, 3000);
-        addObject(enemyTwelve, 2800, worldHeight - 50);
+        Enemy enemyTwelve = new Enemy(2890, 2200, 3650);
+        addObject(enemyTwelve, 2890, worldHeight - 50);
         
-        Enemy enemyThirteen = new Enemy(2850, 2500, 3000);
-        addObject(enemyThirteen, 2850, worldHeight - 50);
+        Enemy enemyThirteen = new Enemy(3100, 300, 3650);
+        addObject(enemyThirteen, 3100, worldHeight - 50);
         
-        Enemy enemyFourteen = new Enemy(2950,2900 , 3000);
-        addObject(enemyFourteen, 2950, worldHeight - 50);
+        Enemy enemyFourteen = new Enemy(3200,3190 , 3650);
+        addObject(enemyFourteen, 3200, worldHeight - 50);
         
-        Enemy enemyFifteen = new Enemy(2890,2800 , 3500);
-        addObject(enemyFifteen, 2890, worldHeight - 200);
+        Enemy enemyFifteen = new Enemy(2930, 2890 , 3500);
+        addObject(enemyFifteen, 2900, worldHeight - 200);
+        
+        Enemy enemySixteen = new Enemy(3300,3000 , 3650);
+        addObject(enemySixteen, 3300, worldHeight - 50);
+        
+        Enemy enemySeventeen = new Enemy(3400,3200 , 3650);
+        addObject(enemySeventeen, 3400, worldHeight - 50);
+        
+        Enemy enemyNineteen = new Enemy(3500,3100 , 3650);
+        addObject(enemyNineteen, 3500, worldHeight - 50);
+        
+        Enemy enemyTwenty = new Enemy(3600,3500 , 3650);
+        addObject(enemyTwenty, 3600, worldHeight - 50);
+        
+        Enemy enemyTwentyOne = new Enemy(4500 ,4300 , 4600);
+        addObject(enemyTwentyOne, 4500, worldHeight - 50);
+        
+        Enemy enemyTwentyTwo = new Enemy(3900 ,3800 , 4400);
+        addObject(enemyTwentyTwo, 3900, worldHeight - 50);
+        
+        Enemy enemyTwentyThree = new Enemy( 4100,4000 , 5000);
+        addObject(enemyTwentyThree, 4100, worldHeight - 50);
+        
+        Enemy enemyTwentyFour = new Enemy(4800,4100 , 5000);
+        addObject(enemyTwentyFour, 4800, worldHeight - 50);
+        
+        Enemy enemyTwentyFive = new Enemy( 5000,3600 , 5600);
+        addObject(enemyTwentyFive, 5000, worldHeight - 50);
+        
+        Enemy enemyTwentySix = new Enemy(5200,5000 ,5600);
+        addObject(enemyTwentySix, 5200, worldHeight - 50);
+        
+        Enemy enemyTwentyEight = new Enemy(5100,4900 ,5200);
+        addObject(enemyTwentyEight, 5100, worldHeight - 50);
+        
+        Enemy enemyTwentyNine = new Enemy(5300,5200 ,5600);
+        addObject(enemyTwentyNine, 5300, worldHeight - 50);
+        
+        Enemy enemyThirty = new Enemy(5676,5500 ,5700);
+        addObject(enemyTwentyNine, 5670, worldHeight - 50);
     }
     
     public void addHealthTracker(){
