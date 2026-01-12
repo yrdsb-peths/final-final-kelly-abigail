@@ -37,6 +37,8 @@ public class Winnie extends Actor {
     
     boolean canMove = true;
     
+    GreenfootSound kill = new GreenfootSound("kill.mp3");
+    
     public Winnie() {
         for(int i = 0; i < 10; i++) {
             idleForward[i] = new GreenfootImage("winnie_idle_forwards/idle" + i + ".png");
@@ -191,6 +193,7 @@ public class Winnie extends Actor {
             int enemyTop = enemy.getY() - enemy.getImage().getHeight() / 2;
             int playerBottom = getY() + getImage().getHeight() / 2;
             if(playerBottom <= enemyTop + 5 ){
+                kill.play();
                 enemy.die();
                 jumpSpeed = -8;
                 jumping = true;
