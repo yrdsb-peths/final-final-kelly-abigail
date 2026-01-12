@@ -193,8 +193,8 @@ public class Winnie extends Actor {
             int enemyTop = enemy.getY() - enemy.getImage().getHeight() / 2;
             int playerBottom = getY() + getImage().getHeight() / 2;
             if(playerBottom <= enemyTop + 5 ){
-                kill.play();
                 enemy.die();
+                kill.play();
                 jumpSpeed = -8;
                 jumping = true;
                 

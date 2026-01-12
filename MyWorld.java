@@ -8,6 +8,7 @@ public class MyWorld extends World
     
     Winnie winnie;
     Points score;
+    GreenfootSound bgMusic = new GreenfootSound("bg.mp3");
     
     public MyWorld(){
         super(600, 300, 1, false);
@@ -18,6 +19,7 @@ public class MyWorld extends World
         addHealthTracker();
         addScore();
         addBackround();
+        bgMusic.playLoop();
     }
     
     public void addWinnie(){
