@@ -17,6 +17,7 @@ public class MyWorld extends World
         addObject(new Timer(), 60, 30);
         addHealthTracker();
         addScore();
+        addBackround();
     }
     
     public void addWinnie(){
@@ -303,5 +304,11 @@ public class MyWorld extends World
     
     public void addPoints(int amount) {
         score.addPoints(amount);
+    }
+    
+    private void addBackround(){
+        GreenfootImage bg = new GreenfootImage("bg.png");
+        bg.scale(600, 300);
+        setBackground(bg);
     }
 }

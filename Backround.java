@@ -8,9 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Backround extends Actor
 {
-    
-    public void act()
-    {
-        
+    public Backround(){
+        ;
     }
 }
