@@ -18,7 +18,10 @@ public class InstructionScreen extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 300, 1);
         
-        
+        // add background image
+        GreenfootImage bg = new GreenfootImage ("InstructionScreenImage.png");
+        bg.scale(getWidth(), getHeight());
+        setBackground(bg);
     }
     
     public void act() {
