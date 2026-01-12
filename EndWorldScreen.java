@@ -21,4 +21,10 @@ public class EndWorldScreen extends World
         bg.scale(getWidth(), getHeight());
         setBackground(bg);
     }
+    
+    public void act() {
+        if (Greenfoot.isKeyDown("space")) {
+            Greenfoot.setWorld(new MyWorld());
+        }
+    }
 }
