@@ -16,6 +16,7 @@ public class Enemy extends WorldObject
     private int verticalSpeed = 0;
     private boolean isDead = false;
     
+    
     public Enemy(int startX, int left, int right){
         setImage(img);
         img.scale(20,20);
@@ -38,6 +39,7 @@ public class Enemy extends WorldObject
             move(speed);
             if(worldX <= leftLimit || worldX >= rightLimit){
                 speed *= -1;
+                img.mirrorHorizontally();
             }
         
             updateScreenPosition();

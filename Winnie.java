@@ -14,6 +14,8 @@ public class Winnie extends Actor {
     
     int speed = 4;
     
+    GreenfootSound owSound = new GreenfootSound("ow.mp3");
+    
     int groundY = 260;
     int jumpSpeed = 3;
     int maxJumpHeight = 400;
@@ -36,8 +38,6 @@ public class Winnie extends Actor {
     int cameraX = 300;
     
     boolean canMove = true;
-    
-    GreenfootSound kill = new GreenfootSound("kill.mp3");
     
     public Winnie() {
         for(int i = 0; i < 10; i++) {
@@ -194,7 +194,6 @@ public class Winnie extends Actor {
             int playerBottom = getY() + getImage().getHeight() / 2;
             if(playerBottom <= enemyTop + 5 ){
                 enemy.die();
-                kill.play();
                 jumpSpeed = -8;
                 jumping = true;
                 
@@ -202,6 +201,7 @@ public class Winnie extends Actor {
                 world.addPoints(10);
             }else if(canTakeDamage){
                 w.loseHp();
+                owSound.play();
                 canTakeDamage = false;
                 coolDownTimer = 50;
             }
