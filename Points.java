@@ -1,30 +1,43 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Points here.
+ * Keeps track of the players score.
+ * Updated everytime player kills an enemy.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Abigail and Kelly) 
+ * @version (01/13/25)
  */
 public class Points extends Actor
 {
-    
-    private int points = 0;
+    // stores the players current score
+    public int points = 0;
     
     /**
-     * Act - do whatever the Points wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Constructor for Points.
      */
     public Points() {
         updateImage();
     }
     
+    /**
+     * Adds 10 points at a time.
+     */
     public void addPoints(int amount) {
         points += amount;
         updateImage();
     }
     
+    /**
+     * Updates the score on the screen.
+     */
     private void updateImage() {
         setImage(new GreenfootImage("Score: " + points, 24, Color.BLACK, Color.WHITE));
+    }
+    
+    /**
+     * Returns the current score value.
+     */
+    public int getPoints() {
+        return points;
     }
 }

@@ -1,40 +1,74 @@
 import greenfoot.*;
 
-public class MyWorld extends World 
-{
-    private int wordWidth = this.getWidth();
-    private int worldHeight = this.getHeight();
-    HealthTracker health;
+/**
+ * Where the entire game is located.
+ * 
+ * @author (Abigail and Kelly) 
+ * @version (01/13/25)
+ */
+public class MyWorld extends World {
     
-    Winnie winnie;
-    Points score;
+   // stores the size of the wolrld
+   private int worldWidth = this.getWidth();
+   private int worldHeight = this.getHeight();
     
-    public MyWorld(){
+   // main player
+   Winnie winnie;
+    
+   // additional variables
+   HealthTracker health;
+   Points score;
+    
+   /**
+     * Constructor for objects of class MyWorld.
+     */
+   public MyWorld() {
+        // Create a new world with 600x300 cells with a cell size of 1x1 pixels.
         super(600, 300, 1, false);
+        
+        // add main game elements
         addWinnie();
         addGroundTiles();
         addEnemy();
+        
+        // add timer to the top left of the screen
         addObject(new Timer(), 60, 30);
+        
+        // add additional variables
         addHealthTracker();
         addScore();
+        
+        // set background
         addBackround();
-    }
+        
+        // add final object (honey bucket)
+        addObject(new Honey(), 8300, 200);
+   }
     
-    public void addWinnie(){
-        // adds the winnie to the screen
+   /**
+     * Creates and places winnie into MyWorld.
+     */
+   public void addWinnie() {
         winnie = new Winnie();
         addObject(winnie, 20, 220);
-    }
+   }
     
-    public void addGroundTiles(){
+   /**
+    * Creates all of the tiles and platforms for the level.
+    */
+   public void addGroundTiles(){
+       
+        // size of each tile
         int tileSize = 40;
         int numberOfTiles = 10000;
         
+        // main ground section near the start
         for (int i  = 0; i < 10; i++) {
             GroundTile tile = new GroundTile();
             addObject (tile, tileSize/2 + (tileSize * i), worldHeight - tileSize/2);
         }
         
+        // additional tile sections throughout the game.
         for (int i  = 0; i < 20; i++) {
             GroundTile tile = new GroundTile();
             addObject (tile, tileSize * 10 + 100 + (tileSize * i), worldHeight - tileSize/2);
@@ -55,6 +89,7 @@ public class MyWorld extends World
             addObject (tile, tileSize * 100 + 350 + (tileSize * i), worldHeight - tileSize/2);
         }
         
+        // floating tile sections
         for (int i  = 0; i < 30; i++) {
             GroundTile tile = new GroundTile();
             addObject (tile, tileSize * 90 + 200 + (tileSize * i), worldHeight - tileSize/2);
@@ -70,6 +105,7 @@ public class MyWorld extends World
             addObject (tile, 800 + (tileSize * i), worldHeight - 130);
         }
         
+        // more tile sections throughout the game.
         for (int i  = 0; i < 4; i++) {
             GroundTile tile = new GroundTile();
             addObject (tile, 1600 +  (tileSize * i), worldHeight - 130);
@@ -180,7 +216,6 @@ public class MyWorld extends World
             addObject (tile, 7300 + (tileSize * i), worldHeight - 130);
         }
         
-        
         for (int i  = 0; i < 2; i++) {
             GroundTile tile = new GroundTile();
             addObject (tile, 7500 + (tileSize * i), worldHeight - 150);
@@ -200,9 +235,13 @@ public class MyWorld extends World
             GroundTile tile = new GroundTile();
             addObject (tile, 8100 + (tileSize * i), worldHeight - 150);
         }
-    }
-    
-    public void addEnemy(){
+        
+   }
+   
+   /**
+    * Adds all of the enemy characters and their location.
+    */
+   public void addEnemy(){
         Enemy enemyOne = new Enemy(250, 100, 350);
         addObject(enemyOne, 250, worldHeight - 50);
         
@@ -287,28 +326,51 @@ public class MyWorld extends World
         Enemy enemyThirty = new Enemy(5676,5500 ,5700);
         addObject(enemyTwentyNine, 5670, worldHeight - 50);
     }
-    
-    public void addHealthTracker(){
+   
+   /**
+    * Creates the health tracker and links it to Winnie.
+    */
+   public void addHealthTracker() {
         health = new HealthTracker(winnie);
         addObject(health, 600 - 50, 30);
-    }
+   }
     
-    public void loseHp(){
+   /**
+    * Reduces the player's health.
+    * Called when Winnie is hit by an enemy.
+    */
+   public void loseHp() {
         health.decreaseHp();
-    } 
-    
-    public void addScore() {
+   } 
+
+   /**
+    * Adds score to the top left corner of the screen.
+    */
+   public void addScore() {
         score = new Points();
         addObject(score, 50, 55);
-    }
+   }
     
-    public void addPoints(int amount) {
+   /**
+    * Increases the points by 10 each time an enemy is killed.
+    */
+   public void addPoints(int amount) {
         score.addPoints(amount);
-    }
+   }
     
-    private void addBackround(){
+   /**
+    * Creates the background image.
+    */
+   private void addBackround() {
         GreenfootImage bg = new GreenfootImage("bg.png");
         bg.scale(600, 300);
         setBackground(bg);
-    }
+   }
+    
+   /**
+    * Returns the current score.
+    */
+   public int getScore() {
+        return score.getPoints();
+   }
 }

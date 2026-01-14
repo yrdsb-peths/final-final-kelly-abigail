@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class WorldObject here.
+ * Any object that needs to be made
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Abigail and Kelly) 
+ * @version (01/13/26)
  */
 public class WorldObject extends Actor
 {
