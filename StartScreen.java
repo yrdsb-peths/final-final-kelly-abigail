@@ -1,20 +1,29 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class StartGame here.
+ * Where the player starts to play the game and see the 
+ * instructions. 
  * 
+<<<<<<< HEAD
  * @author (Abigail Yang and Kelly) 
  * @version (Jan 13 2026)
+=======
+ * @author (Abigail & Kelly) 
+ * @version (01/13/2025)
+>>>>>>> bf4e3fda5418d7d2ec42a32e184c9d9f5d675653
  */
 public class StartScreen extends World
 {
-    
-    GreenfootSound bgMusic = new GreenfootSound("bg.mp3");
-    public StartScreen()
-    {    
+
+    /**
+     * Constructor for objects of class StartGame.
+     * 
+     */
+    public StartScreen() {   
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 300, 1); 
-    
+        
+        GreenfootSound bgMusic = new GreenfootSound("bg.mp3");
         
         // set background start screen
         GreenfootImage bg = new GreenfootImage("StartScreenImage.png");
@@ -24,12 +33,13 @@ public class StartScreen extends World
     
                 
     }
+    
     /**
      * Prepare the world for the start of the program and the backround music.
      * That is: create the initial objects and add them to the world.
      */
-    public void act()
-    {
+    public void act() {
+        // press "space" key to start the game
         if (Greenfoot.isKeyDown("space")) {
             Greenfoot.setWorld(new MyWorld());
             
@@ -37,6 +47,7 @@ public class StartScreen extends World
             bgMusic.playLoop();
         }
         
+        // press "i" key to open the instruction screen
         if (Greenfoot.isKeyDown("i")) {
             Greenfoot.setWorld(new InstructionScreen());
         }
