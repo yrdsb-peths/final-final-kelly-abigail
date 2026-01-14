@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class StartGame here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Abigail Yang and Kelly) 
+ * @version (Jan 13 2026)
  */
 public class StartScreen extends World
 {
@@ -21,18 +21,20 @@ public class StartScreen extends World
         bg.scale(getWidth(), getHeight());
         setBackground(bg);
         
-        bgMusic.setVolume(80);
-        bgMusic.playLoop();
+    
                 
     }
     /**
-     * Prepare the world for the start of the program.
+     * Prepare the world for the start of the program and the backround music.
      * That is: create the initial objects and add them to the world.
      */
     public void act()
     {
         if (Greenfoot.isKeyDown("space")) {
             Greenfoot.setWorld(new MyWorld());
+            
+            bgMusic.setVolume(80);
+            bgMusic.playLoop();
         }
         
         if (Greenfoot.isKeyDown("i")) {
