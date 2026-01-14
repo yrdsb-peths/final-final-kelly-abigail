@@ -32,6 +32,7 @@ public class Enemy extends WorldObject
      * @param left left boundary of movement
      * @param right right boundary of movement
      */
+    
     public Enemy(int startX, int left, int right){
         setImage(img);
         img.scale(20,20);
@@ -63,6 +64,7 @@ public class Enemy extends WorldObject
             // moves in reverse direction if the limit is reached
             if(worldX <= leftLimit || worldX >= rightLimit){
                 speed *= -1;
+                img.mirrorHorizontally();
             }
         
             // remove if offscreen

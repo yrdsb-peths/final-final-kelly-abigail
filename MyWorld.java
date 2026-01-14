@@ -48,7 +48,9 @@ public class MyWorld extends World {
    /**
      * Creates and places winnie into MyWorld.
      */
-   public void addWinnie() {
+    public void addWinnie(){
+        // adds the winnie to the screen
+
         winnie = new Winnie();
         addObject(winnie, 20, 220);
    }

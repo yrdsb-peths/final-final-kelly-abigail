@@ -27,6 +27,8 @@ public class Winnie extends Actor {
    // animation
    int animDelay = 0;
    int imageIndex = 0;
+   
+   GreenfootSound owSound = new GreenfootSound("ow.mp3");
     
    // animation images
    GreenfootImage[] idleForward = new GreenfootImage[10];
@@ -246,6 +248,7 @@ public class Winnie extends Actor {
                 world.addPoints(10);
             } else if(canTakeDamage) {
                 w.loseHp();
+                owSound.play();
                 canTakeDamage = false;
                 coolDownTimer = 50;
            }
