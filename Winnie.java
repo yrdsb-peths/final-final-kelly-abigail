@@ -284,7 +284,7 @@ public class Winnie extends Actor {
     */
    private void fall(){
        // if the winner wins
-       if(distanceTravelled >= 8000) {
+       if(distanceTravelled >= 7950) {
            canMove = false;
            
            // final score
